@@ -1,0 +1,17 @@
+{
+    "name": "gridprinciples/file-api",
+    "authors": [
+        {
+            "name": "gBrock",
+            "email": "contact@gbrock.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "GridPrinciples\\FileApi\\": "src/"
+        }
+    }
+}
