@@ -8,14 +8,12 @@ use Illuminate\Support\Collection;
 
 class Api {
 
-    private $base_uri = 'http://gp.file.server/api/';
-    private $version = 1;
     private $client;
 
     public function __construct()
     {
         $this->client = new Client([
-            'base_uri' => $this->base_uri . 'v' . $this->version . '/',
+            'base_uri' => config('files.api_url') . 'v' . config('files.api_version') . '/',
         ]);
         $this->credentials = [
             config('services.files.key'), config('services.files.secret')
