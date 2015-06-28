@@ -10,7 +10,6 @@ class ValidUploadRequest extends FormRequest
     public function authorize()
     {
         return true;
-        return (bool) Auth::user();
     }
 
     public function rules()
