@@ -16,7 +16,7 @@ class ValidUploadRequest extends FormRequest
     {
         return [
             config('files.input_name') => [
-                'size:' . config('files.max_upload_size')
+                'max:' . config('files.max_upload_size')
             ]
         ];
     }
