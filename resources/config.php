@@ -5,4 +5,5 @@ return [
     'api_version'           => 1,
     'input_name'            => 'files', // used in the <input> when uploading
     'max_upload_size'       => 1024 * 4, // in KB
+    'default_url'           => 'files',
 ];
