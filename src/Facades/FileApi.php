@@ -1,10 +1,10 @@
 <?php
 
-namespace GridPrinciples\FileApi;
+namespace GridPrinciples\FileApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class FileApiFacade extends Facade {
+class FileApi extends Facade {
 
     protected static function getFacadeAccessor()
     {
