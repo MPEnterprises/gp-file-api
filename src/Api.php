@@ -41,7 +41,7 @@ class Api {
         $body = fopen($file, 'r');
         $response = $this->postToServer('upload', $body, $file->getClientOriginalName());
 
-        return (new Response($response->getBody(), $response->getStatusCode()));
+        return json_decode($response->getBody());
     }
 
     private function getAllFiles()
