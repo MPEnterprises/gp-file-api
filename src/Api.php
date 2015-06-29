@@ -57,6 +57,13 @@ class Api {
         return $response;
     }
 
+    public function delete($hash)
+    {
+        $response = $this->getFromServer('delete/' . e($hash));
+
+        return $response;
+    }
+
     private function getFromServer($url)
     {
         $response = $this->client->get($url, ['auth' => $this->credentials]);
