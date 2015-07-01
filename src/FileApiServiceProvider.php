@@ -32,6 +32,11 @@ class FileApiServiceProvider extends ServiceProvider {
 
             return $found;
         });
+
+        // bind the routes
+        if (! $this->app->routesAreCached()) {
+            require __DIR__.'/../resources/routes.php';
+        }
     }
 
     /**
