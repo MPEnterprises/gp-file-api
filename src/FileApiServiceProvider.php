@@ -2,6 +2,7 @@
 
 namespace GridPrinciples\FileApi;
 
+use GridPrinciples\FileApi\Models\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
