@@ -29,6 +29,16 @@ class File extends Model {
     }
 
     /**
+     * Relationship to the uploader.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    /**
      * Get the unassociated files.  These are usually files uploaded from forms for models
      * which do not yet have IDs; these files can't be associated on-upload.
      *
