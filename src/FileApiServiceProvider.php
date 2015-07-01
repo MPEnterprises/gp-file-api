@@ -11,7 +11,7 @@ class FileApiServiceProvider extends ServiceProvider {
     {
         // publish the config file
         $this->publishes([
-            __DIR__.'/../resources/config.php' => config_path('files.php'),
+            __DIR__.'/../config/files.php' => config_path('files.php'),
         ]);
 
         // publish the migration
