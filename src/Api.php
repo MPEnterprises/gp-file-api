@@ -13,7 +13,7 @@ class Api {
     public function __construct()
     {
         $this->client = new Client([
-            'base_uri' => config('files.api_url') . 'v' . config('files.api_version') . '/',
+            'base_uri' => trim(config('files.api_url'), '/') . '/',
         ]);
         $this->credentials = [
             config('services.files.key'), config('services.files.secret')
