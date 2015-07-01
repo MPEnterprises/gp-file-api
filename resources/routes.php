@@ -13,12 +13,13 @@ Route::post(config('files.local_url'), function () {
     $remoteFile = FileApi::save($file);
 
     // Add the file to the local database
-    $model = \GridPrinciples\FileApi\Models\File::create([
+    $model = new \GridPrinciples\FileApi\Models\File;
+    $model->fill([
         'file_name' => $remoteFile->file_name,
         'file_hash' => $remoteFile->hash,
         'file_size' => $remoteFile->file_size,
         'content_type' => $remoteFile->content_type,
-    ]);
+    ])->save();
 
     // Return a response intended for JS uploaders
     return response()->json([
