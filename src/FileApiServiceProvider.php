@@ -19,6 +19,9 @@ class FileApiServiceProvider extends ServiceProvider {
             __DIR__.'/../database/migrations/' => database_path('/migrations')
         ], 'migrations');
 
+        // publish the view files
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'file');
+
         // bind the File model to a route keyword
         Route::bind('file', function($value)
         {
