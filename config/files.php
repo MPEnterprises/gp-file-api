@@ -4,6 +4,10 @@ return [
     // Which file server will be interacted with
     'api_url'           => 'http://gp.file.server/api/v1/',
 
+    // API Credentials
+    'api_key'           => env('FILE_API_KEY'),
+    'api_secret'        => env('FILE_API_SECRET'),
+
     // POST name of uploaded data
     'input_name'        => 'files',
 

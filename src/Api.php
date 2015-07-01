@@ -15,8 +15,10 @@ class Api {
         $this->client = new Client([
             'base_uri' => trim(config('files.api_url'), '/') . '/',
         ]);
+        
         $this->credentials = [
-            config('services.files.key'), config('services.files.secret')
+            config('files.api_key'),
+            config('files.api_secret')
         ];
     }
 
