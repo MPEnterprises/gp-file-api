@@ -41,10 +41,10 @@ Route::get(config('files.local_url') . '/{file}/{size?}', function($file, $size 
  */
 Route::delete(config('files.local_url') . '/{file}', function($file) {
     // Delete from CDN
-    FileApi::delete($image->file_hash);
+    FileApi::delete($file->file_hash);
 
     // Delete from local DB
-    $image->delete();
+    $file->delete();
 
     return;
 });
