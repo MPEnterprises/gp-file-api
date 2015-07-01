@@ -29,6 +29,12 @@ class Api {
     public function serve($hash, $size = '')
     {
         $response = $this->getFile($hash, $size);
+
+        if(class_basename($response) == 'RedirectResponse')
+        {
+            return $response;
+        }
+
         $contentDisposition = str_replace('attachment; ', '', $response->getHeader('Content-Disposition'));
 
         return (new Response($response->getBody(), $response->getStatusCode()))
@@ -53,6 +59,15 @@ class Api {
     {
         // TODO: validate hash for protection against XSS attacks
         $response = $this->getFromServer($size ? 'view/' . e($hash) . '/' . $size : 'view/' . e($hash));
+
+        if($decoded = json_decode($response->getBody()))
+        {
+            // This is a JSON response instead of a file.
+            if(isset($decoded->redirect))
+            {
+                return redirect()->to($decoded->redirect);
+            }
+        }
 
         return $response;
     }
