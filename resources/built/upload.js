@@ -1852,3 +1852,8 @@
     };
 
 })( jQuery, window, document );
+
+$(function () {
+    // Initialize any uploaders on the page
+    $('.uploader').uploader();
+});
