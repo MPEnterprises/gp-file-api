@@ -42,6 +42,9 @@ class FileApiServiceProvider extends ServiceProvider {
         $this->mergeConfigFrom(
             __DIR__.'/../config/files.php', config_path('files.php')
         );
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/services.php', config_path('services.php')
+        );
 
         // bind the API to the container
         $this->app->bind('file_api', function()
