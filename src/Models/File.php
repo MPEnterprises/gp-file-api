@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class File extends Model {
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setTable(config('files.table_name'));
+    }
+
     protected $fillable = ['file_name', 'file_hash', 'file_size', 'content_type'];
 
     protected static function boot()
