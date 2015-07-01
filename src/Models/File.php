@@ -3,6 +3,7 @@
 namespace GridPrinciples\FileApi\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class File extends Model {
 
