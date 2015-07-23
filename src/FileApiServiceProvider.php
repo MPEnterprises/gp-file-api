@@ -3,7 +3,9 @@
 namespace GridPrinciples\FileApi;
 
 use GridPrinciples\FileApi\Models\File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class FileApiServiceProvider extends ServiceProvider {
@@ -32,6 +34,12 @@ class FileApiServiceProvider extends ServiceProvider {
             }
 
             return $found;
+        });
+
+        // Add our custom file validation
+        Validator::extend('uploaded_file', function($attribute, $value, $parameters) {
+            $valid = DB::table(with(new File)->getTable())->where('hash', $value)->first();
+            return (bool) $valid;
         });
 
         // bind the routes
