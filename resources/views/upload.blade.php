@@ -1,4 +1,5 @@
 @if(View::exists('form::html'))
+    {{-- gridprinciples/blade-forms is available, use that --}}
     @include('form::html', [
         'content' => view('file::single_upload', [
             // Explicitly pass in the variables which might be used by the rendered view
