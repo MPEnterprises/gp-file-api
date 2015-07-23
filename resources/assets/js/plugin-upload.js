@@ -28,7 +28,10 @@
     $.extend(Plugin.prototype, {
         init: function () {
             Dropzone.autoDiscover = false;
+
             this.readSettingsFromElement();
+
+            var self = this;
             //this.wrapperElement = this.element)[0];
             // Place initialization logic here
             // You already have access to the DOM element and
@@ -55,7 +58,7 @@
             this.dropzone.on('success', function (file, response) {
                 file.hash = response.hash;
 
-                var hiddenInput = $('<input type="hidden" name="' + this.settings.outputName + '" value="' + file.hash + '">');
+                var hiddenInput = $('<input type="hidden" name="' + self.settings.outputName + '" value="' + file.hash + '">');
 
                 hiddenInput.appendTo($(file.previewElement));
             });
