@@ -1,5 +1,5 @@
 <div class="uploader"
-     max-files="{{ $max or 1 }}"
+     max-files="{{ $max or 0 }}"
      min-width="{{ $max_width or 0 }}"
      min-height="{{ $max_width or 0 }}"
      max-size="{{ config('files.max_upload_size') }}"
