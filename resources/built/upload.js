@@ -1791,6 +1791,14 @@
 
                 hiddenInput.appendTo($(file.previewElement));
             });
+
+            this.dropzone.on("addedfile", function() {
+                if (self.isSingleFileMode())
+                {
+                    // the input is limited to one file, so remove it before adding this one
+                    this.removeFile(this.files[0]);
+                }
+            });
         },
         loadPrefillFiles: function () {
             var prefill = $(this.element).find('.prefill-files').first().children();
@@ -1845,6 +1853,9 @@
                 // Set the URL as the current page, if not already provided
                 this.settings.url = URL.current;
             }
+        },
+        isSingleFileMode: function () {
+            return this.settings.maxFiles == 1;
         },
         toDash: function (str) {
             return str.replace(/([A-Z])/g, function($1){return "-"+$1.toLowerCase();});
