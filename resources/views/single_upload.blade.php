@@ -6,7 +6,7 @@
      input-name="{{ config('files.input_name') }}"
      output-name="{{ $name or 'uploaded_file' }}"
      url="{{ config('files.local_url') }}">
-    @if(isset($files) && count($files))
+    @if(isset($files) && count(array_filter($files)))
         <ul class="prefill-files hidden">
             @foreach($files as $file)
                 <li
