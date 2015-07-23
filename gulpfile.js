@@ -1,7 +1,9 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var less = require('gulp-less');
+var path = require('path');
 
-gulp.task('default', ['scripts']);
+gulp.task('default', ['scripts', 'styles']);
 
 gulp.task('scripts', function() {
     return gulp.src([
@@ -9,5 +11,15 @@ gulp.task('scripts', function() {
         'resources/assets/js/plugin-upload.js',
     ])
         .pipe(concat('upload.js'))
+        .pipe(gulp.dest('resources/built'));
+});
+
+gulp.task('styles', function () {
+    return gulp.src([
+        'resources/assets/less/upload.less',
+    ])
+        .pipe(less({
+            paths: [ path.join(__dirname, 'less', 'includes') ]
+        }))
         .pipe(gulp.dest('resources/built'));
 });
