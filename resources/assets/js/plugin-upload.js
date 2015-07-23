@@ -68,9 +68,9 @@
             });
 
             this.dropzone.on("addedfile", function() {
-                if (self.isSingleFileMode())
+                if (self.isSingleFileMode() && this.files[1] != null)
                 {
-                    // the input is limited to one file, so remove it before adding this one
+                    // the input is limited to one file, so remove others before adding this one
                     this.removeFile(this.files[0]);
                 }
             });
