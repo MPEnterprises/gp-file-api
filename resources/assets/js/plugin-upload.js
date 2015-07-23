@@ -90,6 +90,7 @@
                 'url': this.settings.url,
                 'paramName': this.settings.inputName,
                 'addRemoveLinks': true,
+                'maxFiles': this.settings.maxFiles,
                 //'clickable': this.wrapperElement,
             };
         },
