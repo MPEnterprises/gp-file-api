@@ -31,7 +31,6 @@
 
             this.readSettingsFromElement();
 
-            var self = this;
             //this.wrapperElement = this.element)[0];
             // Place initialization logic here
             // You already have access to the DOM element and
@@ -39,11 +38,16 @@
             // and this.settings
             // you can add more functions like the one below and
             // call them like so: this.yourOtherFunction(this.element, this.settings).
-            console.log(this.getDropzoneOptions());
+            // console.log(this.getDropzoneOptions());
             $(this.element).addClass('dropzone');
             this.dropzone = new Dropzone(this.element, this.getDropzoneOptions());
 
             this.loadPrefillFiles();
+
+            this.registerDropzoneEvents();
+        },
+        registerDropzoneEvents: function () {
+            var self = this;
 
             this.dropzone.on('sending', function(file, xhr, formData) {
                 formData.append('_token', $('meta[name="csrf-token"]').attr('content'));
