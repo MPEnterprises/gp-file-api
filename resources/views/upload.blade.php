@@ -4,6 +4,7 @@
      min-height="600"
      max-size="{{ config('files.max_upload_size') }}"
      input-name="{{ config('files.input_name') }}"
+     output-name="{{ $name or 'uploaded_file' }}"
      url="{{ config('files.local_url') }}">
     @if(isset($files) && count($files))
         <ul class="prefill-files hidden">

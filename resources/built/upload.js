@@ -1741,6 +1741,7 @@
             minHeight: false,
             maxSize: false,
             inputName: false,
+            outputName: false,
             url: '',
         };
 
@@ -1773,13 +1774,19 @@
             this.dropzone.on('sending', function(file, xhr, formData) {
                 formData.append('_token', $('meta[name="csrf-token"]').attr('content'));
             });
+
             this.dropzone.on('removedfile', function (file) {
                 $.post(this.options.url + '/' + file.hash, {
                     '_method': 'DELETE',
                 });
             });
+
             this.dropzone.on('success', function (file, response) {
                 file.hash = response.hash;
+
+                var hiddenInput = $('<input type="hidden" name="' + this.settings.outputName + '" value="' + file.hash + '">');
+
+                hiddenInput.appendTo($(file.previewElement));
             });
         },
         loadPrefillFiles: function () {
