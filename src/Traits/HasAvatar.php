@@ -2,6 +2,7 @@
 
 namespace GridPrinciples\FileApi\Traits;
 
+use GridPrinciples\FileApi\Models\File;
 
 trait HasAvatar {
 
@@ -9,7 +10,7 @@ trait HasAvatar {
      * What resolution is this avatar?  Always assume square avatars.
      * @var int
      */
-    protected $size = 256;
+    protected $avatarSize = 256;
 
     protected $avatarField = 'avatar_id';
 
@@ -25,6 +26,12 @@ trait HasAvatar {
         if($file)
         {
             $this->avatar()->associate($file);
+            $this->save();
         }
+    }
+
+    public function getAvatarSize()
+    {
+        return $this->avatarSize;
     }
 }
