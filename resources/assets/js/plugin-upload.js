@@ -54,9 +54,12 @@
             });
 
             this.dropzone.on('removedfile', function (file) {
-                $.post(this.options.url + '/' + file.hash, {
-                    '_method': 'DELETE',
-                });
+                if(typeof file.hash != 'undefined' && file.hash)
+                {
+                    $.post(this.options.url + '/' + file.hash, {
+                        '_method': 'DELETE',
+                    });
+                }
             });
 
             this.dropzone.on('success', function (file, response) {
