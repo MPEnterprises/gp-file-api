@@ -38,7 +38,7 @@ class FileApiServiceProvider extends ServiceProvider {
 
         // Add our custom file validation
         Validator::extend('uploaded_file', function($attribute, $value, $parameters) {
-            $valid = DB::table(with(new File)->getTable())->where('hash', $value)->first();
+            $valid = DB::table(with(new File)->getTable())->where('file_hash', $value)->first();
             return (bool) $valid;
         });
 
