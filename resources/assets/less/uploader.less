@@ -1,0 +1,228 @@
+@filer-transition: 0.2s linear;
+@filer-overlay-color: #4F4E4E;
+@thumbnail-size: 132px;
+
+.dropzone {
+    background-color: @gray-lighter;
+    padding: @padding-small-horizontal;
+
+    &.dz-started {
+        .dz-message {
+            display: none;
+        }
+    }
+
+    .dz-message {
+        position: relative;
+        padding-top: 60px;
+        padding-bottom: 20px;
+        text-align: center;
+
+        &:before {
+            content: '\002B';
+            font-weight: bold;
+            font-size: 60px;
+            line-height: 60px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            color: @body-bg;
+        }
+
+        .title {
+            margin: 0;
+        }
+    }
+
+    .dz-preview {
+        vertical-align: top;
+        width: @thumbnail-size;
+        cursor: auto;
+
+        .dz-error-mark {
+            color: #FFF;
+            text-align: center;
+            font-size: 36pt;
+        }
+
+        &.dz-success {
+            .dz-image:before {
+                background-color: fade(@filer-overlay-color, 0);
+            }
+
+            .dz-progress {
+                top: -50%;
+            }
+        }
+
+        .dz-image {
+            height: @thumbnail-size;
+            border-radius: @border-radius-small 11px @border-radius-small @border-radius-small;
+            overflow: hidden;
+            position: relative;
+            background: @body-bg;
+
+            &:before {
+                // darkened overlay
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                pointer-events: none;
+                background-color: fade(@filer-overlay-color, 0.6);
+                transition: background @filer-transition;
+            }
+
+            img {
+                max-width: 100%;
+                min-width: 100%;
+            }
+        }
+
+        .dz-progress {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            margin-top: -7px;
+            text-align: center;
+            border-width: 0;
+            color: @body-bg;
+            transition: top @filer-transition;
+            pointer-events: none;
+        }
+
+        .dz-remove {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: transparent;
+            text-align: center;
+            font-size: 0;
+            height: 0;
+            cursor: pointer;
+
+            &:before {
+                content: '\00D7';
+                font-size: 16px;
+                background-color: @brand-danger;
+                width: 20px;
+                display: inline-block;
+                height: 20px;
+                line-height: 12px;
+                border-radius: 50%;
+                color: @gray-lighter;
+                padding: 0;
+                border: 2px solid @gray-lighter;
+            }
+
+            &:hover, &:focus {
+                top: -1px;
+                &:before {
+                    color: @body-bg !important;
+                }
+            }
+        }
+    }
+
+    .dz-filename, .dz-size {
+        display: none;
+    }
+
+    .dz-details {
+        display: table;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @thumbnail-size;
+        height: @thumbnail-size;
+    }
+
+    .dz-file-preview .dz-details {
+        height: 44px;
+        bottom: 0;
+        top: auto;
+    }
+
+    .dz-file-preview .dz-details .dz-filename {
+        display: table-cell;
+        vertical-align: top;
+        color: @gray-dark;
+    }
+
+    .dz-filename {
+        vertical-align: middle;
+        text-align: center;
+        word-break: break-all;
+        color: #FFF;
+        font-size: @font-size-small;
+        padding: 0 @padding-small-horizontal;
+    }
+
+    .dz-preview:hover {
+        .dz-image:before {
+            transition: none;
+            background-color: fade(@filer-overlay-color, 0.6);
+        }
+
+        .dz-filename {
+            display: table-cell;
+        }
+    }
+
+    &.dz-clickable {
+        cursor: pointer;
+
+        &:hover, &:focus {
+            background-color: darken(@gray-lighter, 5%);
+            .dz-remove:before {
+                color: darken(@gray-lighter, 5%);
+                border-color: darken(@gray-lighter, 5%);
+            }
+        }
+    }
+
+    .dz-success-mark {
+        display: none !important;
+    }
+
+    .thumbnail-icon {
+        font-size: @font-size-h1;
+        width: 100%;
+        text-align: center;
+        line-height: @thumbnail-size;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+.dz-sortable .dz-preview {
+    cursor: move;
+}
+
+.dropzone:after {
+    text-align: center;
+    content: '+';
+    font-size: 50px;
+    color: @brand-info;
+    font-weight: bold;
+    width: 132px;
+    height: 132px;
+    line-height: 120px;
+    display: none;
+    margin: 7px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    border: 3px dashed @brand-info;
+    pointer-events: none;
+}
+
+.dropzone:hover:after {
+    border-color: darken(@brand-info, 15%);
+}
+
+.dropzone.dz-started:after {
+    display: inline-block;
+}

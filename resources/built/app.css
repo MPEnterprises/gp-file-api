@@ -1,0 +1,415 @@
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.btn-group-lg > .btn {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.dl-horizontal dd:before,
+.dl-horizontal dd:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after,
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.btn-toolbar:before,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:before,
+.btn-group-vertical > .btn-group:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.pager:before,
+.pager:after,
+.panel-body:before,
+.panel-body:after,
+.modal-footer:before,
+.modal-footer:after {
+  content: " ";
+  display: table;
+}
+.dl-horizontal dd:after,
+.container:after,
+.container-fluid:after,
+.row:after,
+.form-horizontal .form-group:after,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after,
+.navbar-collapse:after,
+.pager:after,
+.panel-body:after,
+.modal-footer:after {
+  clear: both;
+}
+/*!
+ * jQuery UI CSS Framework 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+	display: none;
+}
+.ui-helper-hidden-accessible {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+.ui-helper-reset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	line-height: 1.3;
+	text-decoration: none;
+	font-size: 100%;
+	list-style: none;
+}
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+	content: "";
+	display: table;
+	border-collapse: collapse;
+}
+.ui-helper-clearfix:after {
+	clear: both;
+}
+.ui-helper-clearfix {
+	min-height: 0; /* support: IE7 */
+}
+.ui-helper-zfix {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	opacity: 0;
+	filter:Alpha(Opacity=0); /* support: IE8 */
+}
+
+.ui-front {
+	z-index: 100;
+}
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+	cursor: default !important;
+}
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon {
+	display: block;
+	text-indent: -99999px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*!
+ * jQuery UI Sortable 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+.ui-sortable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+
+/*
+ * The MIT License
+ * Copyright (c) 2012 Matias Meno <m@tias.me>
+ */
+.dropzone, .dropzone * {
+  box-sizing: border-box; }
+
+.dropzone {
+  position: relative; }
+  .dropzone .dz-preview {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    margin: 0.5em; }
+    .dropzone .dz-preview .dz-progress {
+      display: block;
+      height: 15px;
+      border: 1px solid #aaa; }
+      .dropzone .dz-preview .dz-progress .dz-upload {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: green; }
+    .dropzone .dz-preview .dz-error-message {
+      color: red;
+      display: none; }
+    .dropzone .dz-preview.dz-error .dz-error-message, .dropzone .dz-preview.dz-error .dz-error-mark {
+      display: block; }
+    .dropzone .dz-preview.dz-success .dz-success-mark {
+      display: block; }
+    .dropzone .dz-preview .dz-error-mark, .dropzone .dz-preview .dz-success-mark {
+      position: absolute;
+      display: none;
+      left: 30px;
+      top: 30px;
+      width: 54px;
+      height: 58px;
+      left: 50%;
+      margin-left: -27px; }
+
+.dropzone {
+  background-color: #eeeeee;
+  padding: 10px;
+}
+.dropzone.dz-started .dz-message {
+  display: none;
+}
+.dropzone .dz-message {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.dropzone .dz-message:before {
+  content: '\002B';
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 60px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+}
+.dropzone .dz-message .title {
+  margin: 0;
+}
+.dropzone .dz-preview {
+  vertical-align: top;
+  width: 132px;
+  cursor: auto;
+}
+.dropzone .dz-preview .dz-error-mark {
+  color: #FFF;
+  text-align: center;
+  font-size: 36pt;
+}
+.dropzone .dz-preview.dz-success .dz-image:before {
+  background-color: rgba(79, 78, 78, 0);
+}
+.dropzone .dz-preview.dz-success .dz-progress {
+  top: -50%;
+}
+.dropzone .dz-preview .dz-image {
+  height: 132px;
+  border-radius: 3px 11px 3px 3px;
+  overflow: hidden;
+  position: relative;
+  background: #ffffff;
+}
+.dropzone .dz-preview .dz-image:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-color: rgba(79, 78, 78, 0.006);
+  transition: background 0.2s linear;
+}
+.dropzone .dz-preview .dz-image img {
+  max-width: 100%;
+  min-width: 100%;
+}
+.dropzone .dz-preview .dz-progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -7px;
+  text-align: center;
+  border-width: 0;
+  color: #ffffff;
+  transition: top 0.2s linear;
+  pointer-events: none;
+}
+.dropzone .dz-preview .dz-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: transparent;
+  text-align: center;
+  font-size: 0;
+  height: 0;
+  cursor: pointer;
+}
+.dropzone .dz-preview .dz-remove:before {
+  content: '\00D7';
+  font-size: 16px;
+  background-color: #d9534f;
+  width: 20px;
+  display: inline-block;
+  height: 20px;
+  line-height: 12px;
+  border-radius: 50%;
+  color: #eeeeee;
+  padding: 0;
+  border: 2px solid #eeeeee;
+}
+.dropzone .dz-preview .dz-remove:hover,
+.dropzone .dz-preview .dz-remove:focus {
+  top: -1px;
+}
+.dropzone .dz-preview .dz-remove:hover:before,
+.dropzone .dz-preview .dz-remove:focus:before {
+  color: #ffffff !important;
+}
+.dropzone .dz-filename,
+.dropzone .dz-size {
+  display: none;
+}
+.dropzone .dz-details {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 132px;
+  height: 132px;
+}
+.dropzone .dz-file-preview .dz-details {
+  height: 44px;
+  bottom: 0;
+  top: auto;
+}
+.dropzone .dz-file-preview .dz-details .dz-filename {
+  display: table-cell;
+  vertical-align: top;
+  color: #333333;
+}
+.dropzone .dz-filename {
+  vertical-align: middle;
+  text-align: center;
+  word-break: break-all;
+  color: #FFF;
+  font-size: 12px;
+  padding: 0 10px;
+}
+.dropzone .dz-preview:hover .dz-image:before {
+  transition: none;
+  background-color: rgba(79, 78, 78, 0.006);
+}
+.dropzone .dz-preview:hover .dz-filename {
+  display: table-cell;
+}
+.dropzone.dz-clickable {
+  cursor: pointer;
+}
+.dropzone.dz-clickable:hover,
+.dropzone.dz-clickable:focus {
+  background-color: #e2e2e2;
+}
+.dropzone.dz-clickable:hover .dz-remove:before,
+.dropzone.dz-clickable:focus .dz-remove:before {
+  color: #e2e2e2;
+  border-color: #e2e2e2;
+}
+.dropzone .dz-success-mark {
+  display: none !important;
+}
+.dropzone .thumbnail-icon {
+  font-size: 36px;
+  width: 100%;
+  text-align: center;
+  line-height: 132px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.dz-sortable .dz-preview {
+  cursor: move;
+}
+.dropzone:after {
+  text-align: center;
+  content: '+';
+  font-size: 50px;
+  color: #5bc0de;
+  font-weight: bold;
+  width: 132px;
+  height: 132px;
+  line-height: 120px;
+  display: none;
+  margin: 7px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 3px dashed #5bc0de;
+  pointer-events: none;
+}
+.dropzone:hover:after {
+  border-color: #28a1c5;
+}
+.dropzone.dz-started:after {
+  display: inline-block;
+}

@@ -16,7 +16,7 @@ gulp.task('scripts', function() {
 
 gulp.task('styles', function () {
     return gulp.src([
-        'resources/assets/less/upload.less',
+        'resources/assets/less/app.less',
     ])
         .pipe(less({
             paths: [ path.join(__dirname, 'less', 'includes') ]
