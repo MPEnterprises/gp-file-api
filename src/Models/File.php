@@ -102,4 +102,14 @@ class File extends Model {
             $this->attributes['user_id'] = Auth::user()->id;
         }
     }
+
+    /**
+     * Determines whether this resource is an image.
+     * 
+     * @return bool
+     */
+    public function isImage()
+    {
+        return preg_match('/image\/jpeg|image\/gif|image\/png/', $this->getOriginal('content_type')) > 0;
+    }
 }
