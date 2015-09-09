@@ -1931,7 +1931,7 @@
             var self = this;
             return {
                 'url': this.settings.url,
-                'paramName': this.settings.inputName,
+                'paramName': 'file',
                 'acceptedFiles': this.settings.accept,
                 'addRemoveLinks': true,
                 'maxFiles': this.settings.maxFiles,
