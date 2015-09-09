@@ -7,7 +7,7 @@ Route::post(config('files.local_url'), function () {
     // TODO: validate the incoming file
 
     // Pull the file from the request
-    $file = Input::file(config('files.input_name'));
+    $file = Input::file('file');
 
     // Save the file to the remote server
     $remoteFile = FileApi::save($file);
