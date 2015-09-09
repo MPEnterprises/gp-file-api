@@ -3,7 +3,7 @@
     'help' => false,
 ])
 
-@section('inner')
+@section('inner.form.group')
     <div class="{{ $class or 'uploader' }}"
          output-name="{{ $name or 'file' }}"
          max-files="{{ $max or 1 }}"
