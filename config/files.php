@@ -2,7 +2,7 @@
 
 return [
     // Which file server will be interacted with
-    'api_url'           => 'http://files.gridprinciples.com/api/v1/',
+    'api_url'           => 'https://files.gridprinciples.com/api/v1/',
 
     // API Credentials
     'api_key'           => env('FILE_API_KEY'),
