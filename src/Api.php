@@ -28,6 +28,22 @@ class Api {
         return new Collection(json_decode($body));
     }
 
+    public function download($hash)
+    {
+        $response = $this->getFile($hash, false, true);
+
+        if(class_basename($response) == 'RedirectResponse')
+        {
+            return $response;
+        }
+
+        $contentDisposition = str_replace('attachment; ', '', $response->getHeader('Content-Disposition'));
+
+        return (new Response($response->getBody(), $response->getStatusCode()))
+            ->header('Content-type', $response->getHeaderLine('Content-Type'))
+            ->header('Content-disposition', $contentDisposition);
+    }
+
     public function serve($hash, $size = '', $download = false)
     {
         $response = $this->getFile($hash, $size, $download);
