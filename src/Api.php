@@ -28,9 +28,9 @@ class Api {
         return new Collection(json_decode($body));
     }
 
-    public function serve($hash, $size = '')
+    public function serve($hash, $size = '', $download = false)
     {
-        $response = $this->getFile($hash, $size);
+        $response = $this->getFile($hash, $size, $download);
 
         if(class_basename($response) == 'RedirectResponse')
         {
@@ -57,10 +57,10 @@ class Api {
         return $this->getFromServer('all')->getBody();
     }
 
-    private function getFile($hash, $size = '')
+    private function getFile($hash, $size = '', $download = false)
     {
         // TODO: validate hash for protection against XSS attacks
-        $response = $this->getFromServer($size ? 'view/' . e($hash) . '/' . $size : 'view/' . e($hash));
+        $response = $this->getFromServer($size ? 'view/' . e($hash) . '/' . $size : ($download ? 'download/' : 'view/') . e($hash));
 
         if($decoded = json_decode($response->getBody()))
         {
@@ -91,11 +91,11 @@ class Api {
     private function postToServer($url, $body, $filename)
     {
         $response = $this->client->post($url, ['auth' => $this->credentials, 'multipart' => [
-        [
-            'name'     => 'file',
-            'contents' => $body,
-            'filename' => $filename,
-        ]]]);
+            [
+                'name'     => 'file',
+                'contents' => $body,
+                'filename' => $filename,
+            ]]]);
 
         return $response;
     }
