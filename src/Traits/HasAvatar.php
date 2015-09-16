@@ -12,11 +12,11 @@ trait HasAvatar {
      */
     protected $avatarSize = 256;
 
-    protected $avatarField = 'avatar_id';
+    protected $defaultImage = 'img/user.png';
 
     public function avatar()
     {
-        return $this->belongsTo('GridPrinciples\FileApi\Models\File', $this->avatarField);
+        return $this->belongsTo('GridPrinciples\FileApi\Models\File', property_exists($this, 'avatarField') ? $this->avatarField : 'avatar_id');
     }
 
     public function setAvatarAttribute($value)
@@ -33,5 +33,10 @@ trait HasAvatar {
     public function getAvatarSize()
     {
         return $this->avatarSize;
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        return $this->avatar ? $this->avatar->getUrl('thumb') : asset($this->defaultImage);
     }
 }
