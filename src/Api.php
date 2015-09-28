@@ -5,6 +5,7 @@ namespace GridPrinciples\FileApi;
 use GuzzleHttp\Client;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 
 class Api {
 
@@ -34,7 +35,7 @@ class Api {
 
         if(class_basename($response) == 'RedirectResponse')
         {
-            return $response;
+            return $this->cacheAndRespondForContentDeliveryNetwork($hash, false, $response);
         }
 
         $contentDisposition = str_replace('attachment; ', '', $response->getHeader('Content-Disposition'));
@@ -50,7 +51,7 @@ class Api {
 
         if(class_basename($response) == 'RedirectResponse')
         {
-            return $response;
+            return $this->cacheAndRespondForContentDeliveryNetwork($hash, $size, $response);
         }
 
         $contentDisposition = str_replace('attachment; ', '', $response->getHeader('Content-Disposition'));
@@ -76,6 +77,12 @@ class Api {
     private function getFile($hash, $size = '', $download = false)
     {
         // TODO: validate hash for protection against XSS attacks
+        $cacheKey = $this->getCacheKey($hash, $size);
+
+        if (Cache::has($cacheKey)) {
+            return redirect()->to(Cache::get($cacheKey));
+        }
+
         $response = $this->getFromServer($size ? 'view/' . e($hash) . '/' . $size : ($download ? 'download/' : 'view/') . e($hash));
 
         if($decoded = json_decode($response->getBody()))
@@ -114,5 +121,20 @@ class Api {
             ]]]);
 
         return $response;
+    }
+
+    private function cacheAndRespondForContentDeliveryNetwork($hash, $size, $response)
+    {
+        $cacheUrl = $response->getTargetUrl();
+        $key = $this->getCacheKey($hash, $size);
+
+        Cache::forever($key, $cacheUrl);
+
+        return $response;
+    }
+
+    private function getCacheKey($hash, $size)
+    {
+        return implode(':', array_filter([$hash, $size]));
     }
 }
