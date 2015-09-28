@@ -21,6 +21,11 @@ trait HasAvatar {
 
     public function setAvatarAttribute($value)
     {
+        if(!$value) {
+            $this->avatar()->delete();
+            return;
+        }
+
         $file = File::where('file_hash', $value)->first();
 
         if($file)
