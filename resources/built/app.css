@@ -262,7 +262,7 @@
 }
 .dropzone .dz-preview.dz-processing .dz-image:before {
   background-color: rgba(79, 78, 78, 0.6);
-  animation: pulse 2s ease-in infinite;
+  animation: pulse 0.75s ease-in infinite;
 }
 .dropzone .dz-preview.dz-success .dz-image:before {
   background-color: rgba(79, 78, 78, 0);
