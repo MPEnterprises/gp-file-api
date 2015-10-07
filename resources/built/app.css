@@ -220,7 +220,7 @@
 
 @keyframes pulse {
   50% {
-    background-color: rgba(79, 78, 78, 0.004);
+    background-color: rgba(79, 78, 78, 0.4);
   }
 }
 .dropzone {
@@ -261,7 +261,7 @@
   font-size: 36pt;
 }
 .dropzone .dz-preview.dz-processing .dz-image:before {
-  background-color: rgba(79, 78, 78, 0.006);
+  background-color: rgba(79, 78, 78, 0.6);
 }
 .dropzone .dz-preview.dz-success .dz-image:before {
   background-color: rgba(79, 78, 78, 0);
@@ -285,7 +285,7 @@
   right: 0;
   bottom: 0;
   pointer-events: none;
-  background-color: rgba(79, 78, 78, 0.006);
+  background-color: rgba(79, 78, 78, 0.6);
   transition: background 0.2s linear;
 }
 .dropzone .dz-preview .dz-image img {
@@ -367,7 +367,7 @@
 }
 .dropzone .dz-preview:hover .dz-image:before {
   transition: none;
-  background-color: rgba(79, 78, 78, 0.006);
+  background-color: rgba(79, 78, 78, 0.6);
 }
 .dropzone .dz-preview:hover .dz-filename {
   display: table-cell;

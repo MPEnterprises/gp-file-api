@@ -3,7 +3,7 @@
 @thumbnail-size: 132px;
 
 @keyframes pulse {
-    50% { background-color: fade(@filer-overlay-color, 0.4); }
+    50% { background-color: fade(@filer-overlay-color, 40%); }
 }
 
 .dropzone {
@@ -52,7 +52,7 @@
 
         &.dz-processing {
             .dz-image:before {
-                background-color: fade(@filer-overlay-color, 0.6);
+                background-color: fade(@filer-overlay-color, 60%);
             }
         }
 
@@ -80,7 +80,7 @@
                 position: absolute;
                 top: 0; left: 0; right: 0; bottom: 0;
                 pointer-events: none;
-                background-color: fade(@filer-overlay-color, 0.6);
+                background-color: fade(@filer-overlay-color, 60%);
                 transition: background @filer-transition;
             }
 
@@ -173,7 +173,7 @@
     .dz-preview:hover {
         .dz-image:before {
             transition: none;
-            background-color: fade(@filer-overlay-color, 0.6);
+            background-color: fade(@filer-overlay-color, 60%);
         }
 
         .dz-filename {
