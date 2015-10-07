@@ -11,8 +11,8 @@ return [
     // POST name of uploaded data
     'input_name'        => 'files',
 
-    // Size (in KB) used when validating uploads
-    'max_upload_size'   => 1024 * 4,
+    // Size (in MB) used when validating uploads
+    'max_upload_size'   => 4,
 
     // The database table name used for storing images locally
     'table_name'        => 'files',

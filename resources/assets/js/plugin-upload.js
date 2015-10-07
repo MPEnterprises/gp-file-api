@@ -200,7 +200,7 @@
         },
         getDropzoneOptions: function () {
             var self = this;
-            return {
+            var r = {
                 'url': this.settings.url,
                 'paramName': 'file',
                 'acceptedFiles': this.settings.accept,
@@ -229,6 +229,12 @@
                 '<div class="dz-error-mark"><span>&#9888;</span></div>' +
                 '</div>',
             };
+
+            if(this.settings.maxSize) {
+                r['maxFilesize'] = this.settings.maxSize;
+            }
+
+            return r;
         },
         readSettingsFromElement: function () {
             // Grab each setting from the input itself
