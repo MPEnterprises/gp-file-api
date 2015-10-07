@@ -1875,7 +1875,7 @@
             this.dropzone.on("uploadprogress", function (file, progress) {
                 var preview = $(file.previewElement);
 
-                preview.find('.dz-progress').text(progress + '%');
+                preview.find('.dz-progress').text('Uploading...');
             });
         },
         isSingleFileMode: function () {

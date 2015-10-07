@@ -2,6 +2,10 @@
 @filer-overlay-color: #4F4E4E;
 @thumbnail-size: 132px;
 
+@keyframes pulse {
+    50% { background-color: fade(@filer-overlay-color, 0.4); }
+}
+
 .dropzone {
     background-color: @gray-lighter;
     padding: @padding-small-horizontal;
@@ -46,9 +50,16 @@
             font-size: 36pt;
         }
 
+        &.dz-processing {
+            .dz-image:before {
+                background-color: fade(@filer-overlay-color, 0.6);
+            }
+        }
+
         &.dz-success {
             .dz-image:before {
                 background-color: fade(@filer-overlay-color, 0);
+                animation: pulse .5s ease-out 2;
             }
 
             .dz-progress {
