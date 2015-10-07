@@ -33,7 +33,7 @@ Route::post(config('files.local_url'), function () {
  * Serve a file (images as images, non-images as downloads).
  */
 Route::get(config('files.local_url') . '/{file}/{size?}', function($file, $size = '') {
-    return FileApi::serve($file->file_hash, $size);
+    return FileApi::download($file->file_hash, $size);
 });
 
 /*

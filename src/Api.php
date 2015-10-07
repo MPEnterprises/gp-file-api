@@ -29,13 +29,13 @@ class Api {
         return new Collection(json_decode($body));
     }
 
-    public function download($hash)
+    public function download($hash, $size = '')
     {
-        $response = $this->getFile($hash, false, true);
+        $response = $this->getFile($hash, $size, true);
 
         if(class_basename($response) == 'RedirectResponse')
         {
-            return $this->cacheAndRespondForContentDeliveryNetwork($hash, false, $response);
+            return $this->cacheAndRespondForContentDeliveryNetwork($hash, $size, $response);
         }
 
         $contentDisposition = str_replace('attachment; ', '', $response->getHeader('Content-Disposition'));
@@ -48,6 +48,7 @@ class Api {
     public function serve($hash, $size = '', $download = false)
     {
         $response = $this->getFile($hash, $size, $download);
+
 
         if(class_basename($response) == 'RedirectResponse')
         {
@@ -83,7 +84,8 @@ class Api {
             return redirect()->to(Cache::get($cacheKey));
         }
 
-        $response = $this->getFromServer($size ? 'view/' . e($hash) . '/' . $size : ($download ? 'download/' : 'view/') . e($hash));
+        $url = $size ? 'view/' . e($hash) . '/' . $size : ($download ? 'download/' : 'view/') . e($hash);
+        $response = $this->getFromServer($url);
 
         if($decoded = json_decode($response->getBody()))
         {
