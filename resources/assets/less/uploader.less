@@ -53,13 +53,14 @@
         &.dz-processing {
             .dz-image:before {
                 background-color: fade(@filer-overlay-color, 60%);
-                animation: pulse .5s ease-in infinite;
+                animation: pulse 2s ease-in infinite;
             }
         }
 
         &.dz-success {
             .dz-image:before {
                 background-color: fade(@filer-overlay-color, 0);
+                animation: none;
             }
 
             .dz-progress {
