@@ -21,7 +21,7 @@
             @if(isset($help) && $help)
                 {!! $help !!}
             @else
-		    ?? <span class="label label-success">Browse</span> your files
+		    or <span class="label label-success">Browse</span> your files
             @endif
         </div>
         @if(isset($files) && count($files))
