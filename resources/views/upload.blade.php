@@ -4,24 +4,24 @@
 ])
 
 @section('inner.form.group')
-    <div class="{{ $class or 'uploader' }}"
-         output-name="{{ $name or 'file' }}"
-         max-files="{{ $max or 1 }}"
-         min-width="{{ $min_width or 0 }}"
-         min-height="{{ $min_height or 0 }}"
-         max-width="{{ $max_width or 0 }}"
-         max-height="{{ $max_height or 0 }}"
-         accept="{{ $accept or 'image/jpeg,image/png' }}"
+    <div class="{{ $class ?? 'uploader' }}"
+         output-name="{{ $name ?? 'file' }}"
+         max-files="{{ $max ?? 1 }}"
+         min-width="{{ $min_width ?? 0 }}"
+         min-height="{{ $min_height ?? 0 }}"
+         max-width="{{ $max_width ?? 0 }}"
+         max-height="{{ $max_height ?? 0 }}"
+         accept="{{ $accept ?? 'image/jpeg,image/png' }}"
          max-size="{{ config('files.max_upload_size') }}"
          input-name="{{ isset($name) && $name ? $name : config('files.input_name') }}"
          url="{{ config('files.local_url') }}"
-         sortable="{{ $sortable or 'true' }}">
+         sortable="{{ $sortable ?? 'true' }}">
         <div class="dz-message">
             <h3 class="title">Drag &amp; Drop</h3>
             @if(isset($help) && $help)
                 {!! $help !!}
             @else
-                or <span class="label label-success">Browse</span> your files
+		    ?? <span class="label label-success">Browse</span> your files
             @endif
         </div>
         @if(isset($files) && count($files))
