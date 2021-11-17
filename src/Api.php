@@ -15,6 +15,13 @@ class Api {
     {
         $this->client = new Client([
             'base_uri' => trim(config('files.api_url'), '/') . '/',
+            'defaults' => [
+                'config' => [
+                    'curl' => [
+                        CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2
+                    ]
+                ]
+            ]
         ]);
 
         $this->credentials = [
